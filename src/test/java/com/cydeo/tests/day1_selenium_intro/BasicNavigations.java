@@ -38,6 +38,9 @@ public class BasicNavigations {
         // use selenium to navigate refresh
         driver.navigate().refresh();
 
+        // use navigate().to():
+        driver.navigate().to("https://www.google.com");
+
 
 
 
