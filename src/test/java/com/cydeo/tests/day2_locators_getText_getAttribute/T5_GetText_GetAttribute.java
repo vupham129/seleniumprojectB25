@@ -35,10 +35,10 @@ public class T5_GetText_GetAttribute {
 
 //        5- Verify placeholder attribute’s value is as expected:
 //        Expected: first name
-        String expectedFNText = "first name";
-        String actualFNText = firstNameBox.getAttribute("placeholder");
+        String expectedPlaceHolder = "first name";
+        String actualPlaceHolder = firstNameBox.getAttribute("placeholder");
 
-        if(actualFNText.equals(expectedFNText)){
+        if(actualPlaceHolder.equals(expectedPlaceHolder)){
             System.out.println("Passed");
         }else{
             System.out.println("Failed");
