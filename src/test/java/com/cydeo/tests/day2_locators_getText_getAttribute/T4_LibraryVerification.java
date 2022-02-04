@@ -45,6 +45,8 @@ public class T4_LibraryVerification {
         }
 
 
+        driver.close();
+
 //        PS: Locate username input box using “className” locator
 //        Locate password input box using “id” locator
 //        Locate Sign in button using “tagName” locator
