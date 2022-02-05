@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class T4_LibraryVerification {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 //        TC #4: Library verifications
 //        1. Open Chrome browser
         WebDriverManager.chromedriver().setup();
@@ -29,21 +29,24 @@ public class T4_LibraryVerification {
         WebElement signInButton = driver.findElement(By.tagName("button"));
         signInButton.click();
 
+            Thread.sleep(6000);
 //        5. Verify: visually “Sorry, Wrong Email or Password”
 //        displayed
 
         String expectedDisplayed = "Sorry, Wrong Email or Password";
         WebElement messageDisplay = driver.findElement(By.className("alert-danger"));
        // System.out.println(messageDisplay.getAttribute("class"));
+
+
         String actualTextDisplayed = messageDisplay.getText();
         System.out.println(actualTextDisplayed);
+
 
         if(actualTextDisplayed.equals(expectedDisplayed)){
             System.out.println("PASSED");
         }else{
             System.out.println("FAILED");
         }
-
 
         driver.close();
 
