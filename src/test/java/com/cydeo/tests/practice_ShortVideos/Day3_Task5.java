@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Day3_Task5 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 //        TC #5: NextBaseCRM, locators, getText(), getAttribute() practice
 //        1- Open a chrome browser
         WebDriverManager.chromedriver().setup();
@@ -27,6 +27,8 @@ public class Day3_Task5 {
 
 //        5- Verify “error” label is as expected
 //        Expected: Login or E-mail not found
+        Thread.sleep(3000);
+
         WebElement errorLable = driver.findElement(By.className("errortext"));
         String expectedErrorMessage = "Login or E-mail not found";
         String actualErrorMessage = errorLable.getText();
