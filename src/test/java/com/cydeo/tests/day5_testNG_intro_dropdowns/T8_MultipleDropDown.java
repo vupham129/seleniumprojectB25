@@ -47,6 +47,7 @@ public class T8_MultipleDropDown {
 
         //4. Print out all selected values.
        List<WebElement> allSelectedOptions = multipleSelectObj.getAllSelectedOptions();
+        System.out.println("allSelectedOptions.size() = " + allSelectedOptions.size());
 
         for (WebElement eachSelected : allSelectedOptions) {
             System.out.println("eachSelected = " + eachSelected.getText());
