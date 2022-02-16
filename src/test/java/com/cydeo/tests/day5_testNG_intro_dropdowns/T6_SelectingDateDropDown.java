@@ -45,6 +45,11 @@ public class T6_SelectingDateDropDown {
         Select selectDay = new Select(driver.findElement(By.xpath("//select[@id='day']")));
         selectDay.selectByIndex(0);
 
+        System.out.println("selectYear.getFirstSelectedOption().isSelected() = " + selectYear.getFirstSelectedOption().isSelected());
+        System.out.println("selectMonth.getFirstSelectedOption().isSelected() = " + selectMonth.getFirstSelectedOption().isSelected());
+        System.out.println("selectDay.getFirstSelectedOption().isSelected() = " + selectDay.getFirstSelectedOption().isSelected());
+
+
         String actualSelectYear = selectYear.getFirstSelectedOption().getText();
         String actualSelectMonth = selectMonth.getFirstSelectedOption().getText();
         String actualSelectDay = selectDay.getFirstSelectedOption().getText();
