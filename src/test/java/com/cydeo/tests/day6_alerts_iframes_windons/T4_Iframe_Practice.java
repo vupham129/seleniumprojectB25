@@ -37,7 +37,7 @@ public class T4_Iframe_Practice {
         WebElement iframe = driver.findElement(By.id("mce_0_ifr"));
         driver.switchTo().frame(iframe); // have to switch from html parent to ifram html
 
-        WebElement iframeDisplay = driver.findElement(By.xpath("//p[text()='Your content goes here.']"));
+        WebElement iframeDisplay = driver.findElement(By.xpath("//p"));
         System.out.println("iframeDisplay.isDisplayed() = " + iframeDisplay.isDisplayed()); // true
         Assert.assertTrue(iframeDisplay.isDisplayed(), "Result is Not displayed on the text box");
        String actualIframeDisplayText =  iframeDisplay.getText();
@@ -47,7 +47,7 @@ public class T4_Iframe_Practice {
 
         //5. Assert: “An iFrame containing the TinyMCE WYSIWYG Editor”
         driver.switchTo().parentFrame(); // move back to parent html
-        WebElement textDisplayParentHTML = driver.findElement(By.xpath("//h3[.='An iFrame containing the TinyMCE WYSIWYG Editor']"));
+        WebElement textDisplayParentHTML = driver.findElement(By.xpath("//h3"));
         String actualDisplayText = textDisplayParentHTML.getText();
         String expectedText = "An iFrame containing the TinyMCE WYSIWYG Editor";
 
