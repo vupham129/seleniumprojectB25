@@ -39,7 +39,7 @@ public class T4_Iframe_Practice {
 
         WebElement iframeDisplay = driver.findElement(By.xpath("//p[text()='Your content goes here.']"));
         System.out.println("iframeDisplay.isDisplayed() = " + iframeDisplay.isDisplayed()); // true
-
+        Assert.assertTrue(iframeDisplay.isDisplayed(), "Result is Not displayed on the text box");
        String actualIframeDisplayText =  iframeDisplay.getText();
        String expectedIframeDisplayText = "Your content goes here.";
        Assert.assertEquals(actualIframeDisplayText,expectedIframeDisplayText);
