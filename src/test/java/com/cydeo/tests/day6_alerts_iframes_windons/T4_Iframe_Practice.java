@@ -46,7 +46,7 @@ public class T4_Iframe_Practice {
 
 
         //5. Assert: “An iFrame containing the TinyMCE WYSIWYG Editor”
-        driver.switchTo().parentFrame();
+        driver.switchTo().parentFrame(); // move back to parent html
         WebElement textDisplayParentHTML = driver.findElement(By.xpath("//h3[.='An iFrame containing the TinyMCE WYSIWYG Editor']"));
         String actualDisplayText = textDisplayParentHTML.getText();
         String expectedText = "An iFrame containing the TinyMCE WYSIWYG Editor";
