@@ -46,6 +46,24 @@ public class WebTableUtils {
 
     }
 
+    //1- Open a chrome browser
+    //2- Go to: https://practice.cydeo.com/tables
+    //3- Write custom method:
+    //• Method name: getTableGetEmail()
+    //• Return type: void
+    //• Arg1: WebDriver driver
+    //• Arg2: String tableNum
+    //• Arg3: String firstName
+    public static void getTableGetEmail(WebDriver driver, String tableNum, String firstName){
+
+        WebElement table1 = driver.findElement(By.xpath("//table[@id='"+tableNum+"']"));
+        WebElement firstNameCell = driver.findElement(By.xpath("//table[@id='"+tableNum+"']//tbody//tr//td[.='"+firstName+"']"));
+        WebElement emailCell = driver.findElement(By.xpath("//table[@id='"+tableNum+"']//tbody//tr//td[.='"+firstName+"']/../td[3]"));
+        String actualEmailResult = emailCell.getText();
+        System.out.println(actualEmailResult);
+
+    }
+
 
 
 }
