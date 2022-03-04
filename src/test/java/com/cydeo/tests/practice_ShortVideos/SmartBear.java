@@ -2,6 +2,7 @@ package com.cydeo.tests.practice_ShortVideos;
 
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.WebDriverFactory;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -91,21 +92,22 @@ public class SmartBear {
         calculateButton.click();
 
         //9. Fill address Info with JavaFaker
+        Faker faker = new Faker();
         //• Generate: name, street, city, state, zip code
         WebElement nameBox = driver.findElement(By.xpath("//input[@id='ctl00_MainContent_fmwOrder_txtName']"));
-        nameBox.sendKeys("Alexander Cruz");
+        nameBox.sendKeys(faker.name().fullName());
 
         WebElement streetBox = driver.findElement(By.xpath("//input[@id='ctl00_MainContent_fmwOrder_TextBox2']"));
-        streetBox.sendKeys("1213 Irwindale Dr");
+        streetBox.sendKeys(faker.address().streetAddress());
 
         WebElement cityBox = driver.findElement(By.xpath("//input[@id='ctl00_MainContent_fmwOrder_TextBox3']"));
-        cityBox.sendKeys("San Francisco");
+        cityBox.sendKeys(faker.address().cityName());
 
         WebElement stateBox = driver.findElement(By.xpath("//input[@id='ctl00_MainContent_fmwOrder_TextBox4']"));
-        stateBox.sendKeys("CA");
+        stateBox.sendKeys(faker.address().state());
 
         WebElement zipcodeBox = driver.findElement(By.xpath("//input[@id='ctl00_MainContent_fmwOrder_TextBox5']"));
-        zipcodeBox.sendKeys("94006");
+        zipcodeBox.sendKeys(faker.address().zipCode());
 
         //10.Click on “visa” radio button
         WebElement visaRadioButton = driver.findElement(By.xpath("//input[@id='ctl00_MainContent_fmwOrder_cardList_0']"));
@@ -113,17 +115,11 @@ public class SmartBear {
 
         //11.Generate card number using JavaFaker
         WebElement cardNumberBox = driver.findElement(By.xpath("//input[@id='ctl00_MainContent_fmwOrder_TextBox6']"));
-        String cardNumber = "4400556615162237";
+        String cardNumber = faker.finance().creditCard().replaceAll("-","");
         cardNumberBox.sendKeys(cardNumber);
-        for (int i = 0; i < cardNumber.length(); i++) {
-            char eachCh = cardNumber.charAt(i);
-            if(!(Character.isDigit(eachCh))){
-                throw new RuntimeException("Your card number should contain only digit");
-            }
-        }
 
         WebElement expireDateBox = driver.findElement(By.xpath("//input[@id='ctl00_MainContent_fmwOrder_TextBox1']"));
-        expireDateBox.sendKeys("10/2028");
+        expireDateBox.sendKeys(faker.business().creditCardExpiry());
 
         //12.Click on “Process”
         WebElement processButton = driver.findElement(By.xpath("//div//a[@id='ctl00_MainContent_fmwOrder_InsertButton']"));
@@ -132,6 +128,7 @@ public class SmartBear {
 
         //13.Verify success message “New order has been successfully added.”
         String expectedMessageText = "New order has been successfully added.";
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement actualMessage = driver.findElement(By.xpath("//div//strong"));
         String actualMessageText = actualMessage.getText();
 
