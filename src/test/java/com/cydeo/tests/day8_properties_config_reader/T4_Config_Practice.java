@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -24,14 +25,19 @@ public class T4_Config_Practice {
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://www.google.com");
+        driver.get(ConfigurationReader.getProperty("env4"));
+    }
+
+    @AfterMethod
+    public void teardown(){
+        driver.close();
     }
 
     @Test
     public void google_search_test(){
         //3. Write "apple" in search box
         WebElement googleSearchBox = driver.findElement(By.xpath("//input[@name='q']"));
-        googleSearchBox.sendKeys("apple" + Keys.ENTER);
+        googleSearchBox.sendKeys(ConfigurationReader.getProperty("text") + Keys.ENTER);
 
         //4- Verify title:
         //Expected: apple - Google Search
