@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 public class T4_Config_Practice {
@@ -23,11 +22,6 @@ public class T4_Config_Practice {
 //        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 //
 //    }
-
-    @AfterMethod
-    public void teardown(){
-     //   driver.close();
-    }
 
     @Test
     public void google_search_test(){
