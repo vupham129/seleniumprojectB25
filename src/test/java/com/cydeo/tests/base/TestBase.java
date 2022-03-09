@@ -18,6 +18,6 @@ public abstract class TestBase {
 
     @AfterMethod
     public void teardown(){
-        driver.close();
+        driver.quit();
     }
 }
