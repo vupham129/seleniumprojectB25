@@ -30,7 +30,7 @@ public class T2_Upload_Practice extends TestBase {
         //4. Assert:
         //-File uploaded text is displayed on the page
         BrowserUtils.sleep(2);
-        WebElement submission = Driver.getDriver().findElement(By.xpath("//h3[.='File Uploaded!']"));
-        Assert.assertEquals(submission.getText(), "File Uploaded!");
+        WebElement fileUploadHeader = Driver.getDriver().findElement(By.xpath("//h3[.='File Uploaded!']"));
+        Assert.assertEquals(fileUploadHeader.getText(), "File Uploaded!");
     }
 }
