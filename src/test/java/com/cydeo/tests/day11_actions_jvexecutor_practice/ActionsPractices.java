@@ -31,7 +31,30 @@ public class ActionsPractices {
         BrowserUtils.sleep(2);
         actions.sendKeys(Keys.PAGE_UP, Keys.PAGE_UP).perform();
 
+        Driver.closeDriver();
+
+    }
+
+    @Test
+    public void test2(){
+        Driver.getDriver().get("https://practice.cydeo.com/");
+
+
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
