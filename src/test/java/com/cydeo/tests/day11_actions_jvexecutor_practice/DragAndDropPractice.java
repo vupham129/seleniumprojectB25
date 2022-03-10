@@ -16,6 +16,9 @@ public class DragAndDropPractice {
         //1. Go to https://demos.telerik.com/kendo-ui/dragdrop/index
         Driver.getDriver().get("https://demos.telerik.com/kendo-ui/dragdrop/index");
         BrowserUtils.sleep(4);
+        //Locate Accept Cookies button and click
+        WebElement acceptCookiesBtn = Driver.getDriver().findElement(By.id("onetrust-accept-btn-handler"));
+        acceptCookiesBtn.click();
         //2. Drag and drop the small circle to bigger circle.
         WebElement smallCircle = Driver.getDriver().findElement(By.xpath("//div[@id='draggable']"));
         WebElement bigCircle = Driver.getDriver().findElement(By.xpath("//div[@id='droptarget']"));
