@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class POMPractices {
 
-    @Test
+    @Test(priority = 1)
     public void required_field_error_message_test(){
         //TC #1: Required field error message test
         //1- Open a Chrome browser
@@ -24,9 +24,11 @@ public class POMPractices {
         //5- Verify expected error is displayed:
         //Expected: This field is required.
         Assert.assertTrue(libraryLoginPage.fieldRequiredErrorMessage.isDisplayed());
+
+        Driver.closeDriver();
     }
 
-    @Test
+    @Test(priority = 2)
     public void invalid_email_error_message_test(){
         //TC #2: Invalid email format error message test
         //1- Open a chrome browser
@@ -35,15 +37,16 @@ public class POMPractices {
         //3- Enter invalid email format
         LibraryLoginPage libraryLoginPage = new LibraryLoginPage();
 
-        libraryLoginPage.inputUsername.sendKeys("hjgasef");
+        libraryLoginPage.inputUsername.sendKeys("somethingwrong");
         libraryLoginPage.signInButton.click();
 
         //4- Verify expected error is displayed:
         //Expected: Please enter a valid email address.
         Assert.assertTrue(libraryLoginPage.enterValidEmailErrorMessage.isDisplayed());
+        Driver.closeDriver();
     }
 
-    @Test
+    @Test(priority = 3)
     public void library_negative_login_test(){
         //TC #3: Library negative login
         //1- Open a chrome browser
@@ -59,5 +62,6 @@ public class POMPractices {
         //4- Verify title expected error is displayed:
         //Expected: Sorry, Wrong Email or Password
         Assert.assertTrue(libraryLoginPage.wrongEmailOrPasswordErrorMessage.isDisplayed());
+        Driver.closeDriver();
     }
 }
